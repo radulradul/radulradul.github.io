@@ -81,7 +81,6 @@
       font-weight: 500;
     }
 
-
     /* social icons row */
     .socials {
       display: flex; gap: 10px;
@@ -336,7 +335,7 @@
       font-weight: 500;
     }
     .project-links a:hover { text-decoration: underline; }
-
+<!-- 
     /* ── GALLERY ── */
     .gallery-tabs {
       display: flex; gap: 8px;
@@ -407,6 +406,57 @@
       position: absolute; top: 24px; right: 32px;
       font-size: 2rem; color: #fff; cursor: pointer;
       background: none; border: none;
+    } -->
+        /* ── GALLERY HUB ── */
+    .hub-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hub-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .hub-card:hover {
+      border-color: var(--phoenix);
+      transform: translateX(4px);
+    }
+
+    .hub-thumb {
+      font-size: 2rem;
+      width: 56px; height: 56px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--surface2);
+      border-radius: 8px;
+      flex-shrink: 0;
+      /* swap emoji for a real cover image later:
+         background: url('../galleries/images/travels/cover.jpg') center/cover; */
+    }
+
+    .hub-info { flex: 1; }
+    .hub-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .hub-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .hub-arrow {
+      font-size: 1.1rem;
+      color: var(--phoenix);
+      flex-shrink: 0;
     }
 
     /* ── MOBILE ── */
@@ -442,44 +492,33 @@
     <div class="tagline">Researcher &amp; Developer</div>
   </div>
 
-  <!-- <div class="socials">
-    <a href="https://www.linkedin.com/in/iliyaradulov/" target="_blank" title="LinkedIn">in</a>
-    <a href="https://github.com/radulradul" target="_blank" title="GitHub">gh</a>
-    <a href="https://codeberg.org/radulov" target="_blank" title="Codeberg">cb</a>
-    <a href="https://orcid.org/0000-0001-8943-5083" target="_blank" title="ORCID">or</a>
-    <a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank" title="Scopus">sc</a>
-  </div> -->
   <div class="socials">
     <a href="https://www.linkedin.com/in/iliyaradulov/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
       <svg class="icon icon-linkedin" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8.5H4.5V24H.5V8.5zM8 8.5h3.8v2.1h.1c.5-1 1.8-2.3 3.9-2.3 4.2 0 5 2.8 5 6.5V24h-4v-7.8c0-1.9 0-4.4-2.7-4.4s-3.1 2.1-3.1 4.3V24H8V8.5z"/>
       </svg>
     </a>
-
     <a href="https://github.com/radulradul" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
       <svg class="icon icon-github" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.8c-3.3.7-4-1.4-4-1.4-.6-1.6-1.4-2-1.4-2-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.2 3 .9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.4 1.3-3.2-.1-.4-.6-1.8.1-3.7 0 0 1.1-.3 3.6 1.3a12.4 12.4 0 0 1 6.6 0c2.5-1.7 3.6-1.3 3.6-1.3.7 1.9.2 3.3.1 3.7.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.8-5.5 6.1.4.4.8 1 .8 2.1v3.1c0 .3.2.6.8.5A12 12 0 0 0 12 .5z"/>
       </svg>
     </a>
-      <a href="https://codeberg.org/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Codeberg" title="Codeberg" data-icon="codeberg">
+      <a href="https://codeberg.org/radulov" target="_blank" rel="noopener noreferrer" aria-label="Codeberg" title="Codeberg" data-icon="codeberg">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M3 18.5V5.5c0-.8.7-1.5 1.5-1.5h15c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-15C3.7 20 3 19.3 3 18.5zM6 7v10l7-5-7-5z"/>
         </svg>
       </a>
-
-      <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID" data-icon="orcid">
+      <a href="https://orcid.org/0000-0001-8943-5083" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID" data-icon="orcid">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M8.2 19.5H6.1V4.5h2.1v15zm3.5-11.7c2.9 0 5.1 2.1 5.1 4.8 0 2.7-2.2 4.8-5.1 4.8H9.9V7.8h1.8zm0 7.8c1.7 0 3-1.2 3-3 0-1.8-1.3-3-3-3h-.8v6h.8zm5.8-7.8h2.1v15h-2.1v-15z"/>
         </svg>
       </a>
-
-      <a href="https://www.scopus.com/authid/detail.uri?authorId=yourID" target="_blank" rel="noopener noreferrer" aria-label="Scopus" title="Scopus" data-icon="scopus">
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank" rel="noopener noreferrer" aria-label="Scopus" title="Scopus" data-icon="scopus">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
           <path d="M5 4h10l4 4v12H5V4zm10 1.5V9h3.5L15 5.5zM8 12h8v1.8H8V12zm0 3h8v1.8H8V15zm0-6h4v1.8H8V9z"/>
         </svg>
       </a>
     </div>
-
 
   <nav>
     <a href="#" class="active" onclick="show('about', this)">
@@ -538,8 +577,8 @@
     <div class="about-grid">
       <div class="about-bio">
         <p>Hi — I'm <strong>Iliya Angelov Radulov</strong>, a researcher and developer based in Europe. I studeied Physics and since 1998 my research topics moved from electronics to material scientiest, with a particular interest on experiment automation.</p>
-        <p>This page collects my projects, publications, and a few things I do when I'm not at a keyboard.</p>
-        <p>Feel free to reach out via LinkedIn or explore my code on GitHub and Codeberg.</p>
+        <p>This page showcases my projects, publications, and a few things I like to work on in my free time.</p>
+        <p>Feel free to reach out via LinkedIn or explore my code on GitHub and Codeberg as well as my publications on Scopus and ORCID.</p>
       </div>
       <div class="about-meta">
         <div class="meta-row">
@@ -577,26 +616,26 @@
       <h3>Education</h3>
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-year">2020 – present</div>
+          <div class="tl-year">2005 – 2008</div>
           <div class="tl-body">
-            <h4>PhD in [Field]</h4>
-            <div class="where">University Name</div>
-            <p>Brief description of your research focus.</p>
+            <h4>PhD in Condensed Matter Physics</h4>
+            <div class="where">Institute of Solid State Physics, Bulgarian Academy of Sciences</div>
+            <p>Magnetic properties of rare earth manganites</p>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2017 – 2019</div>
+          <div class="tl-year">1992 – 1997</div>
           <div class="tl-body">
-            <h4>MSc in [Field]</h4>
-            <div class="where">University Name</div>
-            <p>Thesis topic or specialisation.</p>
+            <h4>MSc in Radiophysics and Electronics</h4>
+            <div class="where">Sofia University "St. Kliment Ohridski", Sofia, Bulgaria</div>
+            <p>Development of powerful HF generator for capacitive plasma discharge excitation</p>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2014 – 2017</div>
+          <div class="tl-year">1987 – 1992</div>
           <div class="tl-body">
-            <h4>BSc in [Field]</h4>
-            <div class="where">University Name</div>
+            <h4>Translator in German</h4>
+            <div class="where">German-language Gymnasium, Lovech, Bulgaria</div>
           </div>
         </div>
       </div>
@@ -606,19 +645,41 @@
       <h3>Experience</h3>
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-year">2022 – now</div>
+          <div class="tl-year">since 2026</div>
           <div class="tl-body">
-            <h4>Role Title</h4>
-            <div class="where">Organisation / Lab</div>
-            <p>What you do here in one or two sentences.</p>
+            <h4>Consultant</h4>
+            <div class="where">alqem.ai </div>
+            <p>Scientific consulting and research collaboration.</p>
           </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">2019 – 2022</div>
+          <div class="tl-year">2021 – 2026</div>
           <div class="tl-body">
-            <h4>Previous Role</h4>
-            <div class="where">Organisation</div>
-            <p>What you did.</p>
+            <h4>Senior Researcher</h4>
+            <div class="where">Fraunhofer IWKS</div>
+            <p>Work on advanced functional materials research and development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="resume-block">
+      <h3>Experience</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">2012 – 2021</div>
+          <div class="tl-body">
+            <h4>Postdoctoral Researcher</h4>
+            <div class="where">Technical University Darmstadt / Functional materials Lab</div>
+            <p>Material science research, experimental work, project management and students supervision.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2009 – 2012</div>
+          <div class="tl-body">
+            <h4>Marie Curie Postdoctoral Fellowship</h4>
+            <div class="where">"Institute of Electronic Structure and Laser" Foundation for Research and Technology – Hellas (IESL FORTH)</div>
+            <p>Research on materials with strongly correlated electronic systems.</p>
           </div>
         </div>
       </div>
@@ -627,11 +688,11 @@
     <div class="resume-block">
       <h3>Skills &amp; Tools</h3>
       <div class="skills-grid">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">R</span>
-        <span class="skill-tag">Git</span>
         <span class="skill-tag">Linux</span>
-        <span class="skill-tag">LaTeX</span>
+        <span class="skill-tag">LaTeX</span>        
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span>
+        <span class="skill-tag">Git</span>
         <span class="skill-tag">SQL</span>
         <span class="skill-tag">Docker</span>
         <span class="skill-tag">Your Tool</span>
@@ -707,49 +768,42 @@
       <div class="eyebrow">Personal</div>
       <h2>Gallery</h2>
     </div>
+    <p style="color:var(--text-muted);font-size:0.92rem;margin-bottom:36px;line-height:1.7;">
+      A few things beyond the desk — places visited, things learned, and certificates collected along the way.
+    </p>
+    <div class="hub-grid">
 
-    <div class="gallery-tabs">
-      <button class="gallery-tab active" onclick="filterGallery('all', this)">All</button>
-      <button class="gallery-tab" onclick="filterGallery('certificates', this)">Certificates</button>
-      <button class="gallery-tab" onclick="filterGallery('hobbies', this)">Hobbies</button>
-      <button class="gallery-tab" onclick="filterGallery('travels', this)">Travels</button>
-    </div>
+      <a class="hub-card" href="galleries/travels.html">
+        <div class="hub-thumb">✈️</div>
+        <div class="hub-info">
+          <div class="hub-title">Travels</div>
+          <div class="hub-desc">Photos from trips and places around the world.</div>
+        </div>
+        <div class="hub-arrow">→</div>
+      </a>
 
-    <div class="gallery-grid" id="gallery-grid">
-      <!-- Certificates -->
-      <div class="gallery-item" data-cat="certificates" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">📜</span><span>Certificate 1</span></div>
-      </div>
-      <div class="gallery-item" data-cat="certificates" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">📜</span><span>Certificate 2</span></div>
-      </div>
-      <!-- Hobbies -->
-      <div class="gallery-item" data-cat="hobbies" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">🎸</span><span>Hobby photo</span></div>
-      </div>
-      <div class="gallery-item" data-cat="hobbies" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">📷</span><span>Hobby photo</span></div>
-      </div>
-      <!-- Travels -->
-      <div class="gallery-item" data-cat="travels" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">✈️</span><span>Travel photo</span></div>
-      </div>
-      <div class="gallery-item" data-cat="travels" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">🗺️</span><span>Travel photo</span></div>
-      </div>
-      <div class="gallery-item" data-cat="travels" onclick="openLightbox(this)">
-        <div class="gallery-placeholder"><span class="icon">🏔️</span><span>Travel photo</span></div>
-      </div>
+      <a class="hub-card" href="galleries/hobbies.html">
+        <div class="hub-thumb">📷</div>
+        <div class="hub-info">
+          <div class="hub-title">Hobbies</div>
+          <div class="hub-desc">Things I do when not working.</div>
+        </div>
+        <div class="hub-arrow">→</div>
+      </a>
+
+      <a class="hub-card" href="galleries/certificates.html">
+        <div class="hub-thumb">📜</div>
+        <div class="hub-info">
+          <div class="hub-title">Certificates</div>
+          <div class="hub-desc">Courses, training, and credentials.</div>
+        </div>
+        <div class="hub-arrow">→</div>
+      </a>
+
     </div>
   </section>
 
 </main>
-
-<!-- LIGHTBOX -->
-<div id="lightbox">
-  <button id="lightbox-close" onclick="closeLightbox()">✕</button>
-  <img id="lightbox-img" src="" alt="" />
-</div>
 
 <script>
   // ── NAV ──
@@ -774,36 +828,6 @@
     document.getElementById('sidebar').classList.toggle('open');
   }
 
-  // ── GALLERY FILTER ──
-  function filterGallery(cat, btn) {
-    document.querySelectorAll('.gallery-tab').forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      if (cat === 'all' || item.dataset.cat === cat) {
-        item.style.display = '';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
-
-  // ── LIGHTBOX ──
-  function openLightbox(el) {
-    const img = el.querySelector('img');
-    if (!img) return; // placeholder — no image yet
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox').classList.add('open');
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('open');
-    document.getElementById('lightbox-img').src = '';
-  }
-
-  document.getElementById('lightbox').addEventListener('click', function(e) {
-    if (e.target === this) closeLightbox();
-  });
 </script>
 </body>
 </html>
