@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,7 +8,7 @@
   <style>
     /* ── TOKENS ── */
     :root {
-      --phoenix:      #C8721A;   /* Phoenix Orange Metallic */
+      --phoenix:      #C8721A;
       --phoenix-light:#E8924A;
       --phoenix-glow: #F0A855;
       --dark:         #121212;
@@ -22,7 +21,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -116,8 +114,7 @@
 
     /* nav */
     nav { padding: 20px 0; flex: 1; }
-
-    nav a, .nav-group > .nav-label {
+    nav a {
       display: flex; align-items: center; gap: 10px;
       padding: 10px 28px;
       font-size: 0.875rem;
@@ -128,8 +125,7 @@
       transition: color 0.15s, background 0.15s;
       user-select: none;
     }
-
-    nav a:hover, .nav-group > .nav-label:hover { color: var(--text); background: var(--surface2); }
+    nav a:hover { color: var(--text); background: var(--surface2); }
     nav a.active { color: var(--phoenix-light); }
 
     nav a .dot {
@@ -139,25 +135,6 @@
       transition: background 0.15s;
     }
     nav a.active .dot, nav a:hover .dot { background: var(--phoenix); }
-
-    /* dropdown groups */
-    .nav-group { position: relative; }
-    .nav-group > .nav-label { justify-content: space-between; }
-    .nav-group > .nav-label .arrow {
-      font-size: 0.65rem;
-      transition: transform 0.2s;
-    }
-    .nav-group.open > .nav-label .arrow { transform: rotate(90deg); }
-    .nav-group .sub-items {
-      display: none;
-      background: var(--surface2);
-    }
-    .nav-group.open .sub-items { display: block; }
-    .nav-group .sub-items a {
-      padding-left: 44px;
-      font-size: 0.82rem;
-      font-weight: 400;
-    }
 
     /* ── MAIN ── */
     main {
@@ -298,122 +275,106 @@
     }
     .skill-tag:hover { border-color: var(--phoenix); color: var(--phoenix-light); }
 
-    /* ── PROJECTS ── */
-    .projects-grid {
+    /* ── PROJECT GALLERY (NEW) ── */
+    .project-gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .project-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .category-header {
+      padding: 16px 24px;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .category-header h3 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--phoenix-light);
+    }
+    .category-header .badge {
+      background: var(--phoenix);
+      color: #fff;
+      border-radius: 20px;
+      padding: 2px 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .category-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      padding: 16px 20px;
     }
 
     .project-card {
-      background: var(--surface);
+      background: var(--surface2);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
+      border-radius: 8px;
+      padding: 16px 18px;
+      transition: border-color 0.2s, transform 0.15s;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text);
     }
-    .project-card:hover { border-color: var(--phoenix); transform: translateY(-2px); }
-
+    .project-card:hover {
+      border-color: var(--phoenix);
+      transform: translateY(-2px);
+    }
     .project-card .tag {
-      font-size: 0.68rem;
+      font-size: 0.6rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       color: var(--phoenix);
       font-weight: 600;
     }
-    .project-card h4 { font-size: 1rem; font-weight: 600; color: var(--text); }
-    .project-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; flex: 1; }
-
-    .project-links { display: flex; gap: 10px; margin-top: 4px; }
-    .project-links a {
+    .project-card h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+    }
+    .project-card p {
       font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .project-card .project-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .project-card .project-links a {
+      font-size: 0.7rem;
       color: var(--phoenix-light);
       text-decoration: none;
       font-weight: 500;
     }
-    .project-links a:hover { text-decoration: underline; }
-<!-- 
-    /* ── GALLERY ── */
-    .gallery-tabs {
-      display: flex; gap: 8px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    .gallery-tab {
-      padding: 7px 18px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-    .gallery-tab:hover, .gallery-tab.active {
-      background: var(--phoenix);
-      border-color: var(--phoenix);
-      color: #fff;
-    }
+    .project-card .project-links a:hover { text-decoration: underline; }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 14px;
-    }
-
-    .gallery-item {
-      aspect-ratio: 4/3;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .gallery-item:hover { transform: scale(1.02); }
-
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .gallery-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 8px;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-    }
-    .gallery-placeholder .icon { font-size: 1.8rem; }
-
-    /* lightbox */
-    #lightbox {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.9);
-      z-index: 999;
-      align-items: center; justify-content: center;
-    }
-    #lightbox.open { display: flex; }
-    #lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 8px; }
-    #lightbox-close {
-      position: absolute; top: 24px; right: 32px;
-      font-size: 2rem; color: #fff; cursor: pointer;
-      background: none; border: none;
-    } -->
-        /* ── GALLERY HUB ── */
+    /* ── GALLERY HUB ── */
     .hub-grid {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
-
     .hub-card {
       display: flex;
       align-items: center;
@@ -429,7 +390,6 @@
       border-color: var(--phoenix);
       transform: translateX(4px);
     }
-
     .hub-thumb {
       font-size: 2rem;
       width: 56px; height: 56px;
@@ -437,10 +397,7 @@
       background: var(--surface2);
       border-radius: 8px;
       flex-shrink: 0;
-      /* swap emoji for a real cover image later:
-         background: url('../galleries/images/travels/cover.jpg') center/cover; */
     }
-
     .hub-info { flex: 1; }
     .hub-title {
       font-size: 1rem;
@@ -452,7 +409,6 @@
       font-size: 0.83rem;
       color: var(--text-muted);
     }
-
     .hub-arrow {
       font-size: 1.1rem;
       color: var(--phoenix);
@@ -477,6 +433,7 @@
       main { margin-left: 0; padding: 72px 20px 40px; max-width: 100vw; }
       .about-grid { grid-template-columns: 1fr; }
       .tl-item { grid-template-columns: 70px 1fr; }
+      .category-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -503,84 +460,28 @@
         <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.2.8-.5v-1.8c-3.3.7-4-1.4-4-1.4-.6-1.6-1.4-2-1.4-2-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.2 3 .9.1-.7.4-1.2.7-1.5-2.7-.3-5.5-1.4-5.5-6.1 0-1.3.5-2.4 1.3-3.2-.1-.4-.6-1.8.1-3.7 0 0 1.1-.3 3.6 1.3a12.4 12.4 0 0 1 6.6 0c2.5-1.7 3.6-1.3 3.6-1.3.7 1.9.2 3.3.1 3.7.8.8 1.3 1.9 1.3 3.2 0 4.7-2.8 5.8-5.5 6.1.4.4.8 1 .8 2.1v3.1c0 .3.2.6.8.5A12 12 0 0 0 12 .5z"/>
       </svg>
     </a>
-      <a href="https://codeberg.org/radulov" target="_blank" rel="noopener noreferrer" aria-label="Codeberg" title="Codeberg" data-icon="codeberg">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M3 18.5V5.5c0-.8.7-1.5 1.5-1.5h15c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-15C3.7 20 3 19.3 3 18.5zM6 7v10l7-5-7-5z"/>
-        </svg>
-      </a>
-      <a href="https://orcid.org/0000-0001-8943-5083" target="_blank" rel="noopener noreferrer" aria-label="ORCID" title="ORCID" data-icon="orcid">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M8.2 19.5H6.1V4.5h2.1v15zm3.5-11.7c2.9 0 5.1 2.1 5.1 4.8 0 2.7-2.2 4.8-5.1 4.8H9.9V7.8h1.8zm0 7.8c1.7 0 3-1.2 3-3 0-1.8-1.3-3-3-3h-.8v6h.8zm5.8-7.8h2.1v15h-2.1v-15z"/>
-        </svg>
-      </a>
-      <a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank" rel="noopener noreferrer" aria-label="Scopus" title="Scopus" data-icon="scopus">
-        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M5 4h10l4 4v12H5V4zm10 1.5V9h3.5L15 5.5zM8 12h8v1.8H8V12zm0 3h8v1.8H8V15zm0-6h4v1.8H8V9z"/>
-        </svg>
-      </a>
-    </div>
+    <a href="https://codeberg.org/radulov" target="_blank" rel="noopener noreferrer" aria-label="Codeberg" title="Codeberg">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 18.5V5.5c0-.8.7-1.5 1.5-1.5h15c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-15C3.7 20 3 19.3 3 18.5zM6 7v10l7-5-7-5z"/>
+      </svg>
+    </a>
+    <a href="https://orcid.org/0000-0001-8943-5083" target="_blank" rel="noopener noreferrer" aria-label="ORCID">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M8.2 19.5H6.1V4.5h2.1v15zm3.5-11.7c2.9 0 5.1 2.1 5.1 4.8 0 2.7-2.2 4.8-5.1 4.8H9.9V7.8h1.8zm0 7.8c1.7 0 3-1.2 3-3 0-1.8-1.3-3-3-3h-.8v6h.8zm5.8-7.8h2.1v15h-2.1v-15z"/>
+      </svg>
+    </a>
+    <a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank" rel="noopener noreferrer" aria-label="Scopus">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M5 4h10l4 4v12H5V4zm10 1.5V9h3.5L15 5.5zM8 12h8v1.8H8V12zm0 3h8v1.8H8V15zm0-6h4v1.8H8V9z"/>
+      </svg>
+    </a>
+  </div>
 
   <nav>
-    <a href="#" class="active" onclick="show('about', this)">
-      <span class="dot"></span> About
-    </a>
-    <a href="#" onclick="show('resume', this)">
-      <span class="dot"></span> Résumé
-    </a>
-
-    <!-- Current Projects dropdown -->
-    <div class="nav-group" id="group-current">
-      <div class="nav-label" onclick="toggleGroup('group-current')">
-        <span style="display:flex;align-items:center;gap:10px;">
-          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;"></span>
-          Current Projects
-        </span>
-        <span class="arrow">▶</span>
-      </div>
-      <div class="sub-items">
-        <a href="projects/metabase/goexplore-data-stack.html"  onclick="show('current', this, 'group-current')">GoExplore Data Stack — Local Analytics Project</a>
-        <a href="projects/KNIME/knime-bigquery-portfolio.html"  onclick="show('current', this, 'group-current')">Connecting KNIME to Google BigQuery</a>
-        <a href="projects/KNIME/knime-ml-portfolio.html" onclick="show('current', this, 'group-current')">Predicting Sales Quantity with Random Forest</a>
-        <a href="projects/market_prediction/market-revenue-prediction.html" onclick="show('current', this, 'group-current')">Markets Revenue Prediction</a>
-      </div>
-    </div>
-
-    <!-- Scientific Projects dropdown -->
-    <div class="nav-group" id="group-scientific">
-      <div class="nav-label" onclick="toggleGroup('group-scientific')">
-        <span style="display:flex;align-items:center;gap:10px;">
-          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;"></span>
-          Scientific Projects
-        </span>
-        <span class="arrow">▶</span>
-      </div>
-      <div class="sub-items">
-        <a href="sci_projects/mc/magnetocaloric.html" onclick="show('former', this, 'group-scientific')">Magnetocaloric Materials</a>
-        <a href="sci_projects/pm/magnetic-materials.html" onclick="show('former', this, 'group-scientific')">Magnetic Materials</a>
-        <a href="sci_projects/other/other-functional-materials.html" onclick="show('former', this, 'group-scientific')">Other Functional Materials</a>
-        <a href="sci_projects/production/upscaling.html" onclick="show('former', this, 'group-scientific')">Upscaling</a>
- 
-      </div>
-    </div>
-
-    <!-- Former Projects dropdown -->
-    <div class="nav-group" id="group-former">
-      <div class="nav-label" onclick="toggleGroup('group-former')">
-        <span style="display:flex;align-items:center;gap:10px;">
-          <span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--border);flex-shrink:0;"></span>
-          Former Projects
-        </span>
-        <span class="arrow">▶</span>
-      </div>
-      <div class="sub-items">
-        <a href="#" onclick="show('former', this, 'group-former')">Project X</a>
-        <a href="#" onclick="show('former', this, 'group-former')">Project Y</a>
-      </div>
-    </div>
-
-    <a href="#" onclick="show('gallery', this)">
-      <span class="dot"></span> Gallery
-    </a>
+    <a href="#" class="active" onclick="show('about', this)"><span class="dot"></span> About</a>
+    <a href="#" onclick="show('resume', this)"><span class="dot"></span> Résumé</a>
+    <a href="#" onclick="show('projects', this)"><span class="dot"></span> Projects</a>
+    <a href="#" onclick="show('gallery', this)"><span class="dot"></span> Gallery</a>
   </nav>
 </aside>
 
@@ -596,39 +497,18 @@
     <div class="about-grid">
       <div class="about-bio">
         <p>Hi — I am <strong>Iliya Angelov Radulov</strong>, a researcher and developer based in Europe.</p>
-        <p>I studied Physics at Sofia University ‘St. Kliment Ohridski,’ Sofia, Bulgaria, where I obtained my MSc in Radiophysics and Electronics.
-           Since 1998, my work has evolved from electronics to materials science, with a particular interest in experimental automation.</p>
-        <p>In recent years, I have been focusing on integrating modern data science and AI tools into scientific research workflows, 
-          with the aim of extending and supporting physics-driven work rather than pursuing standalone AI or data science applications.</p> 
+        <p>I studied Physics at Sofia University ‘St. Kliment Ohridski,’ Sofia, Bulgaria, where I obtained my MSc in Radiophysics and Electronics. Since 1998, my work has evolved from electronics to materials science, with a particular interest in experimental automation.</p>
+        <p>In recent years, I have been focusing on integrating modern data science and AI tools into scientific research workflows, with the aim of extending and supporting physics-driven work rather than pursuing standalone AI or data science applications.</p>
         <p>This page provides an overview of my projects, publications, and selected personal work.</p>
-        <p>You are welcome to connect with me via LinkedIn, or to explore my code on GitHub and Codeberg, as well as my publications on Scopus and ORCID.
-        </p>
+        <p>You are welcome to connect with me via LinkedIn, or to explore my code on GitHub and Codeberg, as well as my publications on Scopus and ORCID.</p>
       </div>
       <div class="about-meta">
-        <div class="meta-row">
-          <span class="label">Location</span>
-          <span class="value">Bad König, Germany</span>
-        </div>
-        <div class="meta-row">
-          <span class="label">Email</span>
-          <span class="value"><a href="mailto:iliya.radulov@gmail.com">iliyaradulov@gmail.com</a></span>
-        </div>
-        <div class="meta-row">
-          <span class="label">GitHub</span>
-          <span class="value"><a href="https://github.com/radulradul" target="_blank">github.com/radulradul</a></span>
-        </div>
-        <div class="meta-row">
-          <span class="label">Codeberg</span>
-          <span class="value"><a href="https://codeberg.org/radulov" target="_blank">codeberg.org/radulov</a></span>
-        </div>
-          <div class="meta-row">
-          <span class="label">Scopus</span>
-          <span class="value"><a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank">56022860600</a></span>
-        </div>
-        <div class="meta-row">
-          <span class="label">ORCID</span>
-          <span class="value"><a href="https://orcid.org/0000-0001-8943-5083" target="_blank">0000-0001-8943-5083</a></span>
-        </div>
+        <div class="meta-row"><span class="label">Location</span><span class="value">Bad König, Germany</span></div>
+        <div class="meta-row"><span class="label">Email</span><span class="value"><a href="mailto:iliya.radulov@gmail.com">iliyaradulov@gmail.com</a></span></div>
+        <div class="meta-row"><span class="label">GitHub</span><span class="value"><a href="https://github.com/radulradul" target="_blank">github.com/radulradul</a></span></div>
+        <div class="meta-row"><span class="label">Codeberg</span><span class="value"><a href="https://codeberg.org/radulov" target="_blank">codeberg.org/radulov</a></span></div>
+        <div class="meta-row"><span class="label">Scopus</span><span class="value"><a href="https://www.scopus.com/authid/detail.uri?authorId=56022860600" target="_blank">56022860600</a></span></div>
+        <div class="meta-row"><span class="label">ORCID</span><span class="value"><a href="https://orcid.org/0000-0001-8943-5083" target="_blank">0000-0001-8943-5083</a></span></div>
       </div>
     </div>
   </section>
@@ -645,26 +525,15 @@
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-year">2005 – 2008</div>
-          <div class="tl-body">
-            <h4>PhD in Condensed Matter Physics</h4>
-            <div class="where">Institute of Solid State Physics, Bulgarian Academy of Sciences</div>
-            <p>Magnetic properties of rare earth manganites</p>
-          </div>
+          <div class="tl-body"><h4>PhD in Condensed Matter Physics</h4><div class="where">Institute of Solid State Physics, Bulgarian Academy of Sciences</div><p>Magnetic properties of rare earth manganites</p></div>
         </div>
         <div class="tl-item">
           <div class="tl-year">1992 – 1997</div>
-          <div class="tl-body">
-            <h4>MSc in Radiophysics and Electronics</h4>
-            <div class="where">Sofia University "St. Kliment Ohridski", Sofia, Bulgaria</div>
-            <p>Development of powerful HF generator for capacitive plasma discharge excitation</p>
-          </div>
+          <div class="tl-body"><h4>MSc in Radiophysics and Electronics</h4><div class="where">Sofia University "St. Kliment Ohridski", Sofia, Bulgaria</div><p>Development of powerful HF generator for capacitive plasma discharge excitation</p></div>
         </div>
         <div class="tl-item">
           <div class="tl-year">1987 – 1992</div>
-          <div class="tl-body">
-            <h4>Translator in German</h4>
-            <div class="where">German-language Gymnasium, Lovech, Bulgaria</div>
-          </div>
+          <div class="tl-body"><h4>Translator in German</h4><div class="where">German-language Gymnasium, Lovech, Bulgaria</div></div>
         </div>
       </div>
     </div>
@@ -674,41 +543,19 @@
       <div class="timeline">
         <div class="tl-item">
           <div class="tl-year">since 2026</div>
-          <div class="tl-body">
-            <h4>Consultant</h4>
-            <div class="where">alqem.ai </div>
-            <p>Scientific consulting and research collaboration.</p>
-          </div>
+          <div class="tl-body"><h4>Consultant</h4><div class="where">alqem.ai</div><p>Scientific consulting and research collaboration.</p></div>
         </div>
         <div class="tl-item">
           <div class="tl-year">2021 – 2026</div>
-          <div class="tl-body">
-            <h4>Senior Researcher</h4>
-            <div class="where">Fraunhofer IWKS</div>
-            <p>Work on advanced functional materials research and development.</p>
-          </div>
+          <div class="tl-body"><h4>Senior Researcher</h4><div class="where">Fraunhofer IWKS</div><p>Work on advanced functional materials research and development.</p></div>
         </div>
-      </div>
-    </div>
-
-    <div class="resume-block">
-      <h3>Experience</h3>
-      <div class="timeline">
         <div class="tl-item">
           <div class="tl-year">2012 – 2021</div>
-          <div class="tl-body">
-            <h4>Postdoctoral Researcher</h4>
-            <div class="where">Technical University Darmstadt / Functional materials Lab</div>
-            <p>Material science research, experimental work, project management and students supervision.</p>
-          </div>
+          <div class="tl-body"><h4>Postdoctoral Researcher</h4><div class="where">Technical University Darmstadt / Functional materials Lab</div><p>Material science research, experimental work, project management and students supervision.</p></div>
         </div>
         <div class="tl-item">
           <div class="tl-year">2009 – 2012</div>
-          <div class="tl-body">
-            <h4>Marie Curie Postdoctoral Fellowship</h4>
-            <div class="where">"Institute of Electronic Structure and Laser" Foundation for Research and Technology – Hellas (IESL FORTH)</div>
-            <p>Research on materials with strongly correlated electronic systems.</p>
-          </div>
+          <div class="tl-body"><h4>Marie Curie Postdoctoral Fellowship</h4><div class="where">IESL FORTH</div><p>Research on materials with strongly correlated electronic systems.</p></div>
         </div>
       </div>
     </div>
@@ -716,90 +563,114 @@
     <div class="resume-block">
       <h3>Skills &amp; Tools</h3>
       <div class="skills-grid">
-        <span class="skill-tag">Linux</span>
-        <span class="skill-tag">LaTeX</span>        
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">C</span>
-        <span class="skill-tag">Git</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">KNIME</span>
+        <span class="skill-tag">Linux</span><span class="skill-tag">LaTeX</span><span class="skill-tag">Python</span>
+        <span class="skill-tag">C</span><span class="skill-tag">Git</span><span class="skill-tag">SQL</span>
+        <span class="skill-tag">Docker</span><span class="skill-tag">KNIME</span>
       </div>
     </div>
   </section>
 
-  <!-- CURRENT PROJECTS -->
-  <section class="section" id="current">
+  <!-- PROJECTS (NEW GALLERY-LIKE SECTION) -->
+  <section class="section" id="projects">
     <div class="section-head">
-      <div class="eyebrow">Ongoing Work</div>
-      <h2>Current Projects</h2>
+      <div class="eyebrow">Portfolio</div>
+      <h2>Project Gallery</h2>
     </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="tag">Active · 2026</div>
-        <h4>GoExplore Data Stack — Local Analytics Project</h4>
-        <p>The GoExplore project originally relied on Google Sheets, BigQuery, and Looker Studio — all US-hosted cloud services. For a European team processing retail sales data, this creates GDPR exposure: data leaves the EU, vendor lock-in is real, and costs scale unpredictably.</p>
-        <div class="project-links">
-          <a href="/projects/metabase/goexplore-data-stack.html" target="_blank">To the project →</a>
+    <div class="project-gallery">
+
+      <!-- Current Projects -->
+      <div class="project-category">
+        <div class="category-header" onclick="toggleCategory(this)">
+          <h3>⚡ Current Projects</h3>
+          <span class="badge">4</span>
         </div>
-      </div>
-      <div class="project-card">
-        <div class="tag">Active · 2026</div>
-        <h4>Connecting KNIME to Google BigQuery</h4>
-        <p>End-to-end setup of a visual analytics pipeline — from GCP service account configuration and JDBC driver registration to live SQL queries against a shared cloud dataset.</p>
-        <div class="project-links">
-          <a href="projects/KNIME/knime-bigquery-portfolio.html" target="_blank">To the project →</a>
-          <!-- <a href="#" target="_blank">Paper →</a> -->
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="tag">Active · 2026</div>
-        <h4>Predicting Sales Quantity with Random Forest</h4>
-        <p>Built an end-to-end regression pipeline on live BigQuery data — starting from a baseline linear model and iterating to a 3.5× improvement in predictive accuracy.</p>
-        <div class="project-links">
-          <a href="projects/KNIME/knime-ml-portfolio.html" target="_blank">To the project →</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="tag">Active · 2026</div>
-        <h4>Market Revenue Prediction</h4>
-        <p> A full econometric investigation into which European markets to enter next — starting from a naive KNIME model that predicted negative revenue for Norway, through four model iterations, to a statistically rigorous log-log OLS with HAC-corrected standard errors.</p>
-        <div class="project-links">
-          <a href="projects/market_prediction/market-revenue-prediction.html" target="_blank">To the project →</a>
+        <div class="category-grid">
+          <a class="project-card" href="projects/metabase/goexplore-data-stack.html">
+            <span class="tag">Active · 2026</span>
+            <h4>GoExplore Data Stack</h4>
+            <p>Local analytics stack replacing Google Sheets & BigQuery — GDPR compliant, vendor-free.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="projects/KNIME/knime-bigquery-portfolio.html">
+            <span class="tag">Active · 2026</span>
+            <h4>KNIME → BigQuery</h4>
+            <p>Visual analytics pipeline with GCP, JDBC, and live SQL queries.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="projects/KNIME/knime-ml-portfolio.html">
+            <span class="tag">Active · 2026</span>
+            <h4>Sales Prediction RF</h4>
+            <p>Random Forest regression pipeline on live BigQuery — 3.5× accuracy improvement.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="projects/market_prediction/market-revenue-prediction.html">
+            <span class="tag">Active · 2026</span>
+            <h4>Market Revenue Prediction</h4>
+            <p>Econometric investigation with OLS and HAC-corrected errors.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
         </div>
       </div>
 
+      <!-- Scientific Projects -->
+      <div class="project-category">
+        <div class="category-header" onclick="toggleCategory(this)">
+          <h3>🔬 Scientific Projects</h3>
+          <span class="badge">4</span>
+        </div>
+        <div class="category-grid">
+          <a class="project-card" href="sci_projects/mc/magnetocaloric.html">
+            <span class="tag">Research</span>
+            <h4>Magnetocaloric Materials</h4>
+            <p>Magnetic refrigeration and caloric effects.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="sci_projects/pm/magnetic-materials.html">
+            <span class="tag">Research</span>
+            <h4>Magnetic Materials</h4>
+            <p>Structure-property relationships in functional oxides.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="sci_projects/other/other-functional-materials.html">
+            <span class="tag">Research</span>
+            <h4>Other Functional Materials</h4>
+            <p>Multiferroics, dielectrics, and beyond.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="sci_projects/production/upscaling.html">
+            <span class="tag">Research</span>
+            <h4>Upscaling</h4>
+            <p>From lab to pilot scale — processing and optimization.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Former Projects -->
+      <div class="project-category">
+        <div class="category-header" onclick="toggleCategory(this)">
+          <h3>📁 Former Projects</h3>
+          <span class="badge">2</span>
+        </div>
+        <div class="category-grid">
+          <a class="project-card" href="#">
+            <span class="tag">Completed</span>
+            <h4>Project X</h4>
+            <p>Coming soon — details will be added.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+          <a class="project-card" href="#">
+            <span class="tag">Completed</span>
+            <h4>Project Y</h4>
+            <p>Coming soon — details will be added.</p>
+            <div class="project-links"><span>→</span></div>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FORMER PROJECTS -->
-  <section class="section" id="former">
-    <div class="section-head">
-      <div class="eyebrow">Past Work</div>
-      <h2>Former Projects</h2>
-    </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="tag">Completed · 2026</div>
-        <h4>Project X</h4>
-        <p>Coming soon.</p>
-        <div class="project-links">
-          <a href="#" target="_blank">GitHub →</a>
-          <!-- <a href="#" target="_blank">Publication →</a> -->
-        </div>
-      </div>
-      <div class="project-card">
-        <div class="tag">Completed · 2026</div>
-        <h4>Project Y</h4>
-        <p>Coming soon.</p>
-        <div class="project-links">
-          <a href="#" target="_blank">GitHub →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
+  <!-- GALLERY HUB -->
   <section class="section" id="gallery">
     <div class="section-head">
       <div class="eyebrow">Personal</div>
@@ -809,34 +680,21 @@
       A few things beyond the desk — places visited, things learned, and certificates collected along the way.
     </p>
     <div class="hub-grid">
-
-      <a class="hub-card" href="/galleries/travels/travels.html">
+      <a class="hub-card" href="galleries/travels/travels.html">
         <div class="hub-thumb">✈️</div>
-        <div class="hub-info">
-          <div class="hub-title">Travels</div>
-          <div class="hub-desc">Photos from trips and places around the world.</div>
-        </div>
+        <div class="hub-info"><div class="hub-title">Travels</div><div class="hub-desc">Photos from trips and places around the world.</div></div>
         <div class="hub-arrow">→</div>
       </a>
-
-      <a class="hub-card" href="/galleries/hobbies/hobbies.html">
+      <a class="hub-card" href="galleries/hobbies/hobbies.html">
         <div class="hub-thumb">📷</div>
-        <div class="hub-info">
-          <div class="hub-title">Hobbies</div>
-          <div class="hub-desc">Things I do when not working.</div>
-        </div>
+        <div class="hub-info"><div class="hub-title">Hobbies</div><div class="hub-desc">Things I do when not working.</div></div>
         <div class="hub-arrow">→</div>
       </a>
-
-      <a class="hub-card" href="/galleries/certificates/certificates.html">
+      <a class="hub-card" href="galleries/certificates/certificates.html">
         <div class="hub-thumb">📜</div>
-        <div class="hub-info">
-          <div class="hub-title">Certificates</div>
-          <div class="hub-desc">Courses, training, and credentials.</div>
-        </div>
+        <div class="hub-info"><div class="hub-title">Certificates</div><div class="hub-desc">Courses, training, and credentials.</div></div>
         <div class="hub-arrow">→</div>
       </a>
-
     </div>
   </section>
 
@@ -844,27 +702,26 @@
 
 <script>
   // ── NAV ──
-  function show(sectionId, anchor, groupId) {
-    // hide all sections
+  function show(sectionId, anchor) {
     document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
-
-    // clear active from all nav links
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
     if (anchor && anchor.tagName === 'A') anchor.classList.add('active');
-
     if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
     return false;
-  }
-
-  function toggleGroup(id) {
-    document.getElementById(id).classList.toggle('open');
   }
 
   function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
   }
 
+  // ── CATEGORY TOGGLE (collapsible) ──
+  function toggleCategory(header) {
+    const grid = header.nextElementSibling;
+    if (grid) {
+      grid.style.display = grid.style.display === 'none' ? 'grid' : 'none';
+    }
+  }
 </script>
 </body>
 </html>
