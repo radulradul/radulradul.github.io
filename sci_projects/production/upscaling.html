@@ -161,7 +161,8 @@
   .panel::after{ bottom:-1px; right:-1px; border-bottom:2px solid var(--phoenix); border-right:2px solid var(--phoenix); }
 
   /* -------- Prototype grid -------- */
-  .proto-grid{ display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:8px; }
+  .proto-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-top:8px; }
+  @media (max-width:900px){ .proto-grid{ grid-template-columns:1fr 1fr; } }
   .proto-card{ }
   .proto-card .tag{
     font-family:var(--mono); font-size:10px; color:var(--cyan); letter-spacing:.08em; text-transform:uppercase;
@@ -359,6 +360,13 @@
         <div class="metric">2 <small>SPT routes compared, same feedstock powder</small></div>
       </div>
 
+      <div class="panel proto-card">
+        <span class="tag">Coercivity, no heavy rare earths</span>
+        <h3>Solid-state hardening of Nd-Fe-B</h3>
+        <p>In Nd₁₆Fe(bal)CoₓMoᵧCuᵤB₇ alloys, thermally controlling the transformation from a metastable Nd₂Fe₁₇Bₓ phase into the hard-magnetic Nd₂Fe₁₄B phase drives coercivity up sharply — reached through Co, Mo, and Cu alloying and heat treatment alone, with no dysprosium or terbium needed.</p>
+        <div class="metric">200 → 700 <small>kA·m⁻¹ coercivity, via heat treatment</small></div>
+      </div>
+
     </div>
   </section>
 
@@ -404,7 +412,7 @@
 
     <div class="backrefs">
       Full technical detail and literature for the underlying materials: <a href="magnetocaloric.html">Magnetocaloric Materials</a> · <a href="magnetic-materials.html">Magnetic Materials</a> · <a href="other-functional-materials.html">Other Functional Materials</a><br><br>
-      3D-printing and hot-deformation studies referenced above: K. Schäfer et al., <em>Adv. Energy Sustainability Res.</em>, 2026, 7(1), e202500339 (recycled-powder LPBF) · K. Schäfer, R.G.T. Fim et al., <em>J. Magn. Magn. Mater.</em>, 583, 171064, 2023 (in-situ mechanical alignment) · M. Keszler, I.A. Radulov et al., <em>J. Magn. Magn. Mater.</em>, 2025 (FAST/SPS spark plasma texturing)
+      3D-printing, hot-deformation and hardening studies referenced above: K. Schäfer et al., <em>Adv. Energy Sustainability Res.</em>, 2026, 7(1), e202500339 (recycled-powder LPBF) · K. Schäfer, R.G.T. Fim et al., <em>J. Magn. Magn. Mater.</em>, 583, 171064, 2023 (in-situ mechanical alignment) · M. Keszler, I.A. Radulov et al., <em>J. Magn. Magn. Mater.</em>, 2025 (FAST/SPS spark plasma texturing) · L. Schäfer, K. Skokov, F. Maccari, I. Radulov et al., <em>Adv. Funct. Mater.</em>, 33(4), 2208821, 2023 (solid-state hardening mechanism)
     </div>
   </section>
 

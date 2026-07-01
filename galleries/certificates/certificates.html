@@ -259,9 +259,9 @@
 <!-- FILTER TABS -->
 <div class="filter-bar">
   <button class="ftab active" onclick="filter('all', this)">All</button>
-  <button class="ftab" onclick="filter('europe', this)">Europe</button>
-  <button class="ftab" onclick="filter('asia', this)">Asia</button>
-  <button class="ftab" onclick="filter('other', this)">Other</button>
+  <button class="ftab" onclick="filter('filter1', this)">filter1</button>
+  <button class="ftab" onclick="filter('filter2', this)">filter2</button>
+  <button class="ftab" onclick="filter('filter3', this)">filter3</button>
 </div>
 
 <!-- PHOTO GRID -->
@@ -276,7 +276,7 @@
          4. Set data-region to match your filter tabs
   -->
 
-  <div class="photo-card" data-region="europe" onclick="openLb(this, 'Prague, Czech Republic', 'June 2023')">
+  <div class="photo-card" data-region="filter1" onclick="openLb(this, 'Prague, Czech Republic', 'June 2023')">
     <div class="thumb"></div> 
     <!-- <img src="photo.jpg" alt="Description" />
     <img src="photo.jpg" alt="Description" />
@@ -287,7 +287,7 @@
     </div>
   </div>
 
-  <div class="photo-card" data-region="europe" onclick="openLb(this, 'Vienna, Austria', 'March 2022')">
+  <div class="photo-card" data-region="filter1" onclick="openLb(this, 'Vienna, Austria', 'March 2022')">
     <div class="thumb"></div>
     <div class="caption">
       <div class="place">Vienna</div>
@@ -295,7 +295,7 @@
     </div>
   </div>
 
-  <div class="photo-card" data-region="europe" onclick="openLb(this, 'Dolomites, Italy', 'August 2022')">
+  <div class="photo-card" data-region="filter1" onclick="openLb(this, 'Dolomites, Italy', 'August 2022')">
     <div class="thumb">🏔️</div>
     <div class="caption">
       <div class="place">Dolomites</div>
@@ -303,7 +303,7 @@
     </div>
   </div>
 
-  <div class="photo-card" data-region="asia" onclick="openLb(this, 'Kyoto, Japan', 'April 2019')">
+  <div class="photo-card" data-region="filter2" onclick="openLb(this, 'Kyoto, Japan', 'April 2019')">
     <div class="thumb">⛩️</div>
     <div class="caption">
       <div class="place">Kyoto</div>
@@ -311,7 +311,7 @@
     </div>
   </div>
 
-  <div class="photo-card" data-region="other" onclick="openLb(this, 'Somewhere beautiful', '2021')">
+  <div class="photo-card" data-region="filter3" onclick="openLb(this, 'Somewhere beautiful', '2021')">
     <div class="thumb">🌅</div>
     <div class="caption">
       <div class="place">Your destination</div>
